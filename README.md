@@ -3,7 +3,7 @@
 
 Project Link (GitHub repository URL): https://github.com/SubashRoshan/FutureReadyTalent
 
-Project Demo URL: https://diabetesselfchecker.azurewebsites.net
+Project Demo URL: http://diabetesselfchecker.azurewebsites.net/
 
 • This repository consists of files required to deploy a ___Web App___ created with ___Flask___ on ___Microsoft Azure___.
 
@@ -32,3 +32,4 @@ Here are the screenshots of the woking project -
 
 4) Azure ML Studio
 
+<img src="static/azuremlstudio.PNG" /> 
