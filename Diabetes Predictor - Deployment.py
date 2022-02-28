@@ -24,12 +24,25 @@ df_copy['BMI'].fillna(df_copy['BMI'].median(), inplace=True)
 from sklearn.model_selection import train_test_split
 X = df.drop(columns='Outcome')
 y = df['Outcome']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=0)
 
-# Creating Random Forest Model
-from sklearn.ensemble import RandomForestClassifier
-classifier = RandomForestClassifier(n_estimators=20)
-classifier.fit(X_train, y_train)
+# Creating XGBoostClassifier Model
+from xgboost import XGBClassifier
+param_kwargs = {
+        "booster": "gbtree",
+        "colsample_bytree": 1,
+        "eta": 0.2,
+        "gamma": 0.1,
+        "max_depth": 8,
+        "max_leaves": 3,
+        "n_estimators": 400,
+        "objective": "reg:logistic",
+        "reg_alpha": 0,
+        "reg_lambda": 2.291666666666667,
+        "subsample": 0.7,
+        "tree_method": "auto"
+    }
+classifier = XGBClassifier(param_kwargs)
+classifier.fit(X, y)
 
 # Creating a pickle file for the classifier
 filename = 'diabetes-prediction-rfc-model.pkl'
